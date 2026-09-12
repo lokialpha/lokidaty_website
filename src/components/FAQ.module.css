@@ -1,0 +1,107 @@
+.section {
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background: var(--color-bg);
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.intro {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 3.5rem;
+}
+
+.label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-size: clamp(1.875rem, 4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.25rem;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.item {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-accent);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition:
+    box-shadow 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.item:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-border-accent-hover);
+}
+
+.item[open] {
+  border-color: var(--color-border-accent-hover);
+}
+
+.question {
+  padding: 1.375rem 1.75rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  letter-spacing: -0.01em;
+  transition: color 0.35s ease;
+}
+
+.question::-webkit-details-marker {
+  display: none;
+}
+
+.question::after {
+  content: '+';
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-primary);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.item[open] .question::after {
+  transform: rotate(45deg);
+}
+
+.question:hover {
+  color: var(--color-primary);
+}
+
+.answer {
+  padding: 0 1.75rem 1.375rem;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}

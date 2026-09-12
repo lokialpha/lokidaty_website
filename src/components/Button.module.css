@@ -1,0 +1,128 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9375rem 2.125rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  transition:
+    transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  min-width: 200px;
+  will-change: transform;
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+}
+
+.primary {
+  color: var(--color-white);
+  background: linear-gradient(135deg, #d97706 0%, #f59e0b 40%, #f4c95d 70%, #f59e0b 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+  box-shadow: 0 4px 18px rgba(217, 119, 6, 0.22);
+}
+
+.primary:hover,
+.primary:focus-visible {
+  transform: translate3d(0, -2px, 0) scale(1.03);
+  box-shadow: 0 14px 42px rgba(217, 119, 6, 0.32);
+  animation-duration: 3s;
+  outline: none;
+}
+
+.primary:active {
+  transform: translate3d(0, -1px, 0) scale(1.01);
+  box-shadow: 0 8px 28px rgba(217, 119, 6, 0.26);
+  transition-duration: 0.15s;
+}
+
+.secondary {
+  color: var(--color-text);
+  background: var(--color-button-secondary-bg);
+  border: 1.5px solid var(--color-button-secondary-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+}
+
+.secondary:hover,
+.secondary:focus-visible {
+  transform: translate3d(0, -2px, 0);
+  background: var(--color-button-secondary-bg-hover);
+  border-color: var(--color-button-secondary-border-hover);
+  box-shadow:
+    0 0 0 1px rgba(244, 201, 93, 0.2),
+    0 0 20px rgba(217, 119, 6, 0.12),
+    0 8px 28px rgba(217, 119, 6, 0.08);
+  outline: none;
+}
+
+.secondary:hover .arrow,
+.secondary:focus-visible .arrow {
+  transform: translate3d(4px, 0, 0);
+}
+
+.secondary:active {
+  transform: translate3d(0, -1px, 0);
+  transition-duration: 0.15s;
+}
+
+.withArrow {
+  padding-right: 1.75rem;
+}
+
+.withSparkle {
+  padding-left: 1.125rem;
+}
+
+.sparkle {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  opacity: 0.92;
+}
+
+.arrow {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.ripple {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transform: translate(-50%, -50%) scale(0);
+  animation: rippleExpand 0.65s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes rippleExpand {
+  to {
+    transform: translate(-50%, -50%) scale(40);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary {
+    animation: none;
+  }
+
+  .arrow {
+    transition: none;
+  }
+}
