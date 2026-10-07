@@ -1,4 +1,3 @@
-import type { MouseEvent } from 'react'
 import { GOOGLE_PLAY_URL } from '../config/links'
 import styles from './GooglePlayBadge.module.css'
 
@@ -15,16 +14,13 @@ export default function GooglePlayBadge({
   eyebrow = 'GET IT ON',
   title = 'Google Play',
 }: GooglePlayBadgeProps) {
-  const isPlaceholder = GOOGLE_PLAY_URL === '#'
-
   return (
     <a
       href={GOOGLE_PLAY_URL}
       className={`${styles.badge} ${size === 'large' ? styles.badgeLarge : ''} ${className}`}
       aria-label={`${eyebrow} ${title}`}
-      {...(isPlaceholder ? { 'aria-disabled': true, onClick: (e: MouseEvent) => e.preventDefault() } : {})}
-      target={isPlaceholder ? undefined : '_blank'}
-      rel={isPlaceholder ? undefined : 'noopener noreferrer'}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <span className={styles.icon} aria-hidden="true">
         <svg viewBox="0 0 24 24" width="28" height="28">

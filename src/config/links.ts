@@ -1,2 +1,2 @@
-/** Update when the Play Store listing is live. */
-export const GOOGLE_PLAY_URL = '#'
+export const GOOGLE_PLAY_URL =
+  'https://play.google.com/store/apps/details?id=com.lokialpha.lokidaty'
